@@ -9,6 +9,9 @@ class FileDataSource: public DataSource{
 public:
     static FileDataSource& getInstance();       //Zwraca sinegleton
 
+
+
+
 private:
     FileDataSource(TypeOfDataSource type);
     virtual ~FileDataSource();

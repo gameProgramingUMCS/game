@@ -1,4 +1,5 @@
 #include "datasource.h"
+#include "singletonsprovider.h"
 #include <QDir>
 
 DataSource::DataSource(TypeOfDataSource type){
@@ -26,6 +27,10 @@ DataSource::DataSource(TypeOfDataSource type){
 
 TypeOfDataSource DataSource::getTypeOfData(){
     return this->typeOfData;
+}
+
+AppInformation &DataSource::getAppInformation(){
+    return SingletonsProvider::getInstance().getInstanceOfAppInformation();
 }
 
 TypeOfDataSource DataSource::getTypeOfData() const{

@@ -2,22 +2,23 @@
 //#include <sqlite3/sqlite3.h>
 
 #include "user.h"
-//#include <SFML/Window.hpp>
 #include "databasedatasource.h"
+#include "singletonsprovider.h"
+#include "game.h"
+
 using namespace std;
 
 int main(){
 
-cout << "Hello World!" << endl;
-// sf::Window window(sf::VideoMode(800, 600), "My window");
-// window.setVisible(true);
 
-    Storable *tom = new User();
-    cout<<tom->describe().toAnsiString()<<endl;
-    SingletonsProvider::getInstance().getInstanceOfDatabaseDataSource();
-    //DatabaseDataSource::getInstance();
+    SingletonsProvider::getInstance().getInstanceOfDatabaseDataSource();        //Tworzymy/zwracamy baze danych
 
-    system("pause");
+    Game game;
+    game.run();     //Uruchamiamy glowna petle gry
+
+//    Storable *tom = new User();
+//    cout<<tom->describe().toAnsiString()<<endl;
+
     return 0;
 }
 

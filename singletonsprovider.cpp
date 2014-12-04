@@ -19,4 +19,12 @@ DatabaseDataSource &SingletonsProvider::getInstanceOfDatabaseDataSource()   //Si
     return DatabaseDataSource::getInstance();
 }
 
+AppInformation &SingletonsProvider::getInstanceOfAppInformation(){          //Singleton obiektu dostarczajacego danych o aplikacji
+    return AppInformation::getInstance();
+}
+
+EventManager &SingletonsProvider::getInstanceOfEventManager(){              //Singleton obiektu zarzadzajacego eventami
+    return EventManager::getInstance();
+}
+
 

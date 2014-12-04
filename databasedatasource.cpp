@@ -12,10 +12,21 @@
 DatabaseDataSource::DatabaseDataSource(TypeOfDataSource type):DataSource(type){
 
     bool didDatabaseAlreadyExists = isDatabaseExists();
-    assert(this->createConnectionDatabaseForServer());        //Tworzymy polacznie do bazy danych
+    TypeOfApp typApp = getAppInformation().getType();
+
+    if(typApp == Client){
+         assert(this->createConnectionDatabaseForClient());        //Tworzymy polacznie do bazy danych klienta
+    }else{
+        assert(this->createConnectionDatabaseForServer());        //Tworzymy polacznie do bazy danych serwera
+    }
 
     if(!didDatabaseAlreadyExists){                             //Jesli baza danych juz istniala to nie przygotowujemy jej juz robimy tpo tylko jesli jeszcze nie istnieje
-       assert(this->prepareBasicDatabaseStructure(  (this->commonStatements() + this->clientStatements())  ));
+
+        if(typApp == Client){
+            assert(this->prepareBasicDatabaseStructure(  (this->commonStatements() + this->clientStatements())  )); //Jesli klient to wykonuje zapytania wspolne i klienta
+        }else{
+            assert(this->prepareBasicDatabaseStructure(  (this->commonStatements() + this->serverStatements())  )); //Jesli serwer to zapytania wspolne i serwera
+        }
     }
 }
 

@@ -22,6 +22,9 @@ SOURCES += main.cpp \
     singletonsprovider.cpp \
     basicinterface.cpp \
     user.cpp \
+    game.cpp \
+    appinformation.cpp \
+    eventmanager.cpp
 
 HEADERS += \
     filedatasource.h \
@@ -30,5 +33,8 @@ HEADERS += \
     singletonsprovider.h \
     basicinterface.h \
     user.h \
+    game.h \
+    appinformation.h \
+    eventmanager.h
 
 

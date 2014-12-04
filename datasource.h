@@ -2,6 +2,8 @@
 #define DATASOURCE_H
 
 #include <QString>
+#include "appinformation.h"
+
 
 //Typ zrodla danych
 enum TypeOfDataSource{
@@ -14,10 +16,11 @@ class DataSource{
 
 public:
     DataSource(TypeOfDataSource type);
-    TypeOfDataSource getTypeOfData();
+    TypeOfDataSource getTypeOfData();       //Zwraca typ zrodla danych
+
 
 protected:
-
+    AppInformation& getAppInformation();    //zwraca informacje o aplikacji
     TypeOfDataSource getTypeOfData() const;
     QString getPath() const;
 
